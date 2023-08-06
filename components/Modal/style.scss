@@ -1,0 +1,144 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 999999;
+	visibility: hidden;
+	transition: visibility 0s ease 0.3s;
+
+	&--open {
+		visibility: visible !important;
+		transition: visibility 0s ease;
+
+		.modal-over {
+			opacity: 1;
+			transition: opacity 0.35s ease;
+		}
+		.modal-box {
+			opacity: 1;
+			transform: translate(-50%, -50%);
+			transition: visibility 0s ease 0s, opacity 0.3s ease 0.3s, transform 0.3s ease 0.3s;
+		}
+	}
+}
+
+.close {
+	cursor: pointer;
+	outline: none;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	height: 48px;
+	width: 48px;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--modal-box-bg);
+
+	&--outside {
+		height: 36px;
+		width: 36px;
+		border-radius: 50%;
+		background: rgba(#000, 0.9);
+
+		@media #{$tablet} {
+			right: -10px;
+			transform: translateX(100%);
+		}
+	}
+
+	svg {
+		min-width: 24px;
+		min-height: 24px;
+		height: 24px;
+		width: 24px;
+	}
+}
+
+.modal-inner {
+	overflow-y: auto;
+	max-height: 100vh;
+	max-width: 100%;
+	padding-bottom: 70px;
+
+	@media #{$tablet} {
+		max-height: 95vh;
+		max-height: 84vh;
+		padding-bottom: 0px;
+	}
+
+	@media #{$max-tablet} {
+		&.modal-inner--popup {
+			padding-bottom: 0;
+			align-self: center;
+			background: var(--modal-box-bg);
+		}
+	}
+	@media #{$mobile-large} {
+		&.modal-inner--popup {
+			border-radius: 16px;
+		}
+	}
+}
+
+.modal-over {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background: rgba(25, 21, 24, 0.95);
+	opacity: 0;
+	transition: opacity 0.3s ease 0.2s;
+}
+.modal-box {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100vh;
+	width: 500px;
+	max-width: 100vw;
+	transform: translate(-50%, -45%);
+	opacity: 0;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+
+	@media #{$tablet} {
+		height: auto;
+		min-height: 200px;
+		max-height: 85vh;
+		border-radius: 16px;
+		top: 45%;
+	}
+
+	@media #{$max-tablet} {
+		&.modal-box--popup {
+			display: flex;
+			justify-content: center;
+			max-height: 100vh;
+			background: none;
+		}
+	}
+}
+
+.modal-box-bg {
+	background: var(--modal-box-bg);
+}
+
+.modal--OffersItem,
+.modal--InfoModal {
+	background: var(--modal-box-mobile-bg);
+	color: var(--modal-box-mobile-text-color);
+
+	@media #{$tablet} {
+		background: var(--modal-box-desktop-bg);
+		color: var(--modal-box-desktop-text-color);
+	}
+}
+
+.modal-custom-bg {
+	background: linear-gradient(to top, white 90%, rgba(25, 21, 24, 0.95) 10%) !important;
+}

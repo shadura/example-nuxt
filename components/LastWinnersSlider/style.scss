@@ -1,0 +1,34 @@
+.last-winners-slider {
+	background: var(--last-winners-slider-bg);
+	padding: 2px 12px;
+
+	&__item {
+		padding: 8px;
+		width: auto;
+		display: inline-flex;
+		max-width: 380px;
+		min-width: 50px;
+		overflow: hidden;
+
+		span {
+			align-items: center;
+			color: var(--last-winners-slider-text-color);
+			cursor: default;
+			display: inline-block;
+			padding-right: 24px;
+			border-right: 1px solid var(--last-winners-slider-border-color);
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			.game-link {
+				cursor: pointer;
+				color: inherit;
+				text-decoration: none;
+				display: inline;
+				border-right: 0;
+				padding-right: 0;
+			}
+		}
+	}
+}

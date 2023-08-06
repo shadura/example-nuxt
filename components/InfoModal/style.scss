@@ -1,0 +1,142 @@
+.modal {
+	position: relative;
+	transition: transform 0.3s ease;
+	border-radius: 16px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	@media #{$max-tablet} {
+		border-radius: initial;
+	}
+
+	&--with-content {
+		.preview .image {
+			top: auto;
+			bottom: 16px;
+		}
+	}
+
+	&:hover:not(.modal--with-content) {
+		transform: scale(1.01);
+	}
+}
+
+.preview {
+	display: block;
+	width: 100%;
+	cursor: pointer;
+}
+
+.image {
+	height: 190px;
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+	background: #fff;
+
+	@media #{$mobile-landscape} {
+		height: 220px;
+	}
+	@media #{$tablet} {
+		height: 240px;
+	}
+	@media #{$laptop} {
+		height: 280px;
+	}
+}
+
+.info {
+	background: var(--offers-item-info-bg);
+	padding: 32px 20px;
+	display: block;
+
+	&--max-height {
+		height: calc(100% - 190px);
+
+		@media #{$mobile-landscape} {
+			height: calc(100% - 220px);
+		}
+		@media #{$tablet} {
+			height: calc(100% - 240px);
+		}
+		@media #{$laptop} {
+			height: calc(100% - 280px);
+		}
+	}
+
+	button {
+		margin-top: 20px;
+	}
+}
+
+.title {
+	font-size: 24px;
+	margin-bottom: 8px;
+	color: var(--offers-item-title-color);
+	font-weight: 700;
+	word-break: break-word;
+
+	@media #{$tablet} {
+		font-size: 30px;
+	}
+	@media #{$desktop} {
+		font-size: 40px;
+	}
+}
+
+.description {
+	color: var(--offers-item-description-color);
+	font-size: 20px;
+	font-weight: 700;
+	display: block;
+
+	@media #{$tablet} {
+		font-size: 24px;
+	}
+	@media #{$desktop} {
+		font-size: 32px;
+	}
+}
+
+.content {
+	padding: 32px 20px;
+
+	:global {
+		.accent {
+			color: var(--offers-item-content-p-accent);
+		}
+
+		.bold {
+			font-weight: 700;
+		}
+
+		p {
+			font-size: 14px;
+			margin-bottom: 12px;
+			margin-top: 0;
+			line-height: 1.65;
+
+			&.italic {
+				font-style: italic;
+			}
+
+			&.center {
+				text-align: center;
+			}
+		}
+
+		h3 {
+			margin-top: 24px;
+			margin-bottom: 12px;
+			font-size: 22px;
+			font-weight: 400;
+		}
+	}
+}
+
+.btn {
+	text-align: center;
+	margin-bottom: 32px;
+}
